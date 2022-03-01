@@ -14,3 +14,4 @@ https://github.com/ausamindec/Week_3
 
 ## Screenshot 1: initial page 
 
+![ScreenShot] (https://github.com/ausamindec/Week_3/blob/main/ScreenShot/Screenshot%202022-03-01%20175831.jpg )
