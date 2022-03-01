@@ -11,3 +11,6 @@ https://ausamindec.github.io/Week_3/
 https://github.com/ausamindec/Week_3
 
 # Screenshots of the working application:
+
+## Screenshot 1: initial page 
+
