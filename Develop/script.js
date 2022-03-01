@@ -12,47 +12,47 @@ function generatePassword() {
   console.log(typeof length);
   if (length < 8) {
     alert("Password must be atleast 8 characters.");
-    return;
+    return generatePassword();
   } else if (length > 128) {
     alert("Password must be less than 128 characters.");
-    return;
-  }
-  let checkSpecialCharacter=confirm("Do you want to include special characters?");
+    return '';
+  } else {
+    let checkSpecialCharacter = confirm("Do you want to include special characters?");
     
-  //prompt user for numeric characters
-  var checkNumeric = confirm("Do you want to include numeric characters?");
+    //prompt user for numeric characters
+    var checkNumeric = confirm("Do you want to include numeric characters?");
   
-  //prompt user for lowercase characters
-  var checkLowerCase = confirm("Do you want to include lowercase characters?");
+    //prompt user for lowercase characters
+    var checkLowerCase = confirm("Do you want to include lowercase characters?");
   
-  //prompt user for uppercase characters
-  var checkUpperCase = confirm("Do you want to include uppercase characters?");
+    //prompt user for uppercase characters
+    var checkUpperCase = confirm("Do you want to include uppercase characters?");
 
-  if (!checkSpecialCharacter && !checkNumeric && !checkLowerCase && !checkUpperCase) {
-    alert("Your password must contain at least one special, numeric, lowercase, or uppercase character");
-        return;
+    if (!checkSpecialCharacter && !checkNumeric && !checkLowerCase && !checkUpperCase) {
+      alert("Your password must contain at least one special, numeric, lowercase, or uppercase character");
+      return '';
+    }
+    var allChar = [];
+    if (checkSpecialCharacter) {
+      allChar = allChar.concat(onlySpecial);
+    }
+    if (checkNumeric) {
+      allChar = allChar.concat(onlyNumeric);
+    }
+    if (checkLowerCase) {
+      allChar = allChar.concat(onlyLower);
+    }
+    if (checkUpperCase) {
+      allChar = allChar.concat(onlyUpper);
+    }
+    console.log(allChar);
+    for (let i = 0; i < length; i++) {
+      var random = Math.floor(Math.random() * allChar.length);
+      finalPassword += allChar[random];
+    }
+    return finalPassword;
   }
-  var allChar = [];
-  if (checkSpecialCharacter) {
-    allChar = allChar.concat(onlySpecial);
-  }
-  if (checkNumeric) {
-    allChar = allChar.concat(onlyNumeric);
-  }
-  if (checkLowerCase) {
-    allChar = allChar.concat(onlyLower);
-  }
-  if (checkUpperCase) {
-    allChar = allChar.concat(onlyUpper);
-  }
-  console.log(allChar);
-  for (let i = 0; i < length; i++){
-    var random = Math.floor(Math.random() * allChar.length);
-    finalPassword += allChar[random];
-  }
-  return finalPassword;
 }
-
 
 // Write password to the #password input
 function writePassword() {
